@@ -15,9 +15,7 @@ Heroku setup:
 
 ** Configuration and Installation
 
-Heroku environment variables needed: ~ON_HEROKU~ (set to anything, such as =YES=).
-
-Python environment setup:
+Local Python environment setup:
 
 #+BEGIN_SRC shell-script
   pipenv --python python3 install
@@ -38,4 +36,20 @@ Local run using:
   pipenv run python main.py
 #+END_SRC
 
+Heroku environment variables needed: ~ON_HEROKU~ (set to anything, such as =YES=).
+
 Deployment: don't forget the =Procfile=!
+
+** MongoDB
+
+Local macOS instance downloaded from [[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/]] - install using Homebrew.
+
+Run database locally in Terminal via =mongod --config /usr/local/etc/mongod.conf=.
+
+Python access: [[https://www.w3schools.com/python/python_mongodb_getstarted.asp]]. Install:
+
+#+BEGIN_SRC shell-script
+  pipenv install pymongo
+#+END_SRC
+
+Console tests with =db-test.py= etc.
