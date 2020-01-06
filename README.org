@@ -1,0 +1,41 @@
+-*- mode: org; mode: visual-line; -*-
+#+STARTUP: indent
+
+* =heroku-starter=
+
+** Setup
+
+Heroku setup:
+
+#+BEGIN_SRC shell-script
+  heroku login
+  heroku create [name]
+  heroku git:remote -a [name]
+#+END_SRC
+
+** Configuration and Installation
+
+Heroku environment variables needed: ~ON_HEROKU~ (set to anything, such as =YES=).
+
+Python environment setup:
+
+#+BEGIN_SRC shell-script
+  pipenv --python python3 install
+#+END_SRC
+
+Python dependencies:
+
+#+BEGIN_SRC shell-script
+  pipenv install flask
+  pipenv install gunicorn
+  pipenv install eventlet
+  pipenv install requests
+#+END_SRC
+
+Local run using:
+
+#+BEGIN_SRC shell-script
+  pipenv run python main.py
+#+END_SRC
+
+Deployment: don't forget the =Procfile=!
