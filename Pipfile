@@ -10,8 +10,8 @@ flask = "*"
 gunicorn = "*"
 eventlet = "*"
 requests = "*"
-pymongo = "*"
 flask-cors = "*"
+pymongo = "==3.9"
 
 [requires]
 python_version = "3.7"
