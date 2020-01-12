@@ -14,7 +14,7 @@ password = os.environ["DB_PASS"]
 
 # MongoDB Atlas:
 CONNECTION=\
-    "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority" \
+    "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority&connect=false" \
     % (user, password)
 
 myclient = pymongo.MongoClient(CONNECTION)

@@ -9,7 +9,7 @@ user = os.environ["DB_USER"]
 password = os.environ["DB_PASS"]
 
 CONNECTION=\
-    "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority" \
+    "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority&connect=false" \
     % (user, password)
 
 myclient = pymongo.MongoClient(CONNECTION)
