@@ -17,6 +17,8 @@ CONNECTION=\
     "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority&connect=false" \
     % (user, password)
 
+print(CONNECTION)
+
 myclient = pymongo.MongoClient(CONNECTION)
 mydb = myclient["mydatabase"]
 mycol = mydb["customers"]
