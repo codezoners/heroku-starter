@@ -11,6 +11,7 @@ gunicorn = "*"
 eventlet = "*"
 requests = "*"
 pymongo = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"
