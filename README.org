@@ -5,7 +5,7 @@
 
 ** Setup
 
-Heroku setup:
+Heroku setup (given a local repository with a buildpack project):
 
 #+BEGIN_SRC shell-script
   heroku login
@@ -36,11 +36,17 @@ Local run using:
   pipenv run python main.py
 #+END_SRC
 
-Heroku environment variables needed: ~ON_HEROKU~ (set to anything, such as =YES=).
+** Heroku Deployment
+
+Heroku environment variables needed:
+
+- ~ON_HEROKU~ (set to anything, such as =YES=) - though doesn't seem obligatory
+- ~DB_USER~
+- ~DB_PASS~ (see MongoDB below)
 
 Deployment: don't forget the =Procfile=!
 
-** MongoDB
+** MongoDB (Local)
 
 Local macOS instance downloaded from [[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/]] - install using Homebrew.
 
@@ -53,3 +59,13 @@ Python access: [[https://www.w3schools.com/python/python_mongodb_getstarted.asp]
 #+END_SRC
 
 Console tests with =db-test.py= etc.
+
+** MongoDB Atlas
+
+Create a free cluster. Firewall IP address restriction can be lifted later.
+
+The Python test script, and ~main.py~, expect ~DB_USER~ and ~DB_PASS~ in the environment. Set these up for Heroku (see above); for local testing using a remote database, use
+
+#+BEGIN_SRC shell-script
+  DB_USER=[user] DB_PASS=[pass] pipenv run python main.py
+#+END_SRC
