@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify, redirect
+from flask_cors import CORS
 import urllib.parse
 import datetime
 import os
@@ -24,6 +25,7 @@ mydb = myclient["mydatabase"]
 mycol = mydb["customers"]
 
 app = Flask(__name__, static_url_path='', static_folder="static")
+CORS(app)
 
 @app.route('/')
 def index():
