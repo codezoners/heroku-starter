@@ -20,17 +20,18 @@ CONNECTION=\
 
 print(CONNECTION)
 
-myclient = pymongo.MongoClient(CONNECTION)
-mydb = myclient["mydatabase"]
-mycol = mydb["customers"]
+#myclient = pymongo.MongoClient(CONNECTION)
+#mydb = myclient["mydatabase"]
+#mycol = mydb["customers"]
 
 app = Flask(__name__, static_url_path='', static_folder="static")
 CORS(app)
 
 @app.route('/')
 def index():
-    print(mycol.find_one())
-    return render_template('index.html', data=mycol.find())
+    #print(mycol.find_one())
+    #return render_template('index.html', data=mycol.find())
+    return render_template('index.html', data=[])
 
 if (not ON_HEROKU) and __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
