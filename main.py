@@ -16,14 +16,14 @@ database = os.environ["DB_NAME"]
 
 # MongoDB Atlas:
 CONNECTION_ATLAS=\
-    "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority" \
-    % (user, password)
+    "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/%s?retryWrites=true&w=majority" \
+    % (user, password, database)
 
 CONNECTION_MLAB=\
-    "mongodb://%s:%s@ds263248.mlab.com:63248/tfmp" \
-    % (user, password)
+    "mongodb://%s:%s@ds263248.mlab.com:63248/%s" \
+    % (user, password, database)
 
-CONNECTION=CONNECTION_MLAB
+CONNECTION=CONNECTION_ATLAS
 
 print(CONNECTION)
 
