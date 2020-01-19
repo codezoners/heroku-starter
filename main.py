@@ -23,7 +23,7 @@ CONNECTION_MLAB=\
     "mongodb://%s:%s@ds263248.mlab.com:63248/%s" \
     % (user, password, database)
 
-CONNECTION=CONNECTION_ATLAS
+CONNECTION=CONNECTION_MLAB
 
 print(CONNECTION)
 
