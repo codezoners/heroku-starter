@@ -5,7 +5,8 @@ import datetime
 import os
 import pymongo
 
-# This is super-important for MongoDB Atlas ("+srv"), not not much documented...
+# This is appatently needed for MongoDB Atlas ("+srv"), and not much documented;
+# but doesn't help for Heroku deployment.
 import dns
 
 ON_HEROKU = "ON_HEROKU" in os.environ
@@ -26,7 +27,7 @@ CONNECTION_MLAB=\
     "mongodb://%s:%s@ds263248.mlab.com:63248/%s" \
     % (user, password, database)
 
-CONNECTION=CONNECTION_ATLAS
+CONNECTION=CONNECTION_MLAB
 
 print(CONNECTION)
 
