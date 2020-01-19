@@ -9,19 +9,26 @@ ON_HEROKU = "ON_HEROKU" in os.environ
 
 user = os.environ["DB_USER"]
 password = os.environ["DB_PASS"]
+database = os.environ["DB_NAME"]
 
 # Local database:
 #CONNECTION="mongodb://localhost:27017/"
 
 # MongoDB Atlas:
-CONNECTION=\
+CONNECTION_ATLAS=\
     "mongodb+srv://%s:%s@cluster0-ay0js.mongodb.net/test?retryWrites=true&w=majority" \
     % (user, password)
+
+CONNECTION_MLAB=\
+    "mongodb://%s:%s@ds263248.mlab.com:63248/tfmp" \
+    % (user, password)
+
+CONNECTION=CONNECTION_MLAB
 
 print(CONNECTION)
 
 myclient = pymongo.MongoClient(CONNECTION, connect=False)
-mydb = myclient["mydatabase"]
+mydb = myclient[database]
 mycol = mydb["customers"]
 
 app = Flask(__name__, static_url_path='', static_folder="static")
