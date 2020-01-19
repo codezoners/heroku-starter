@@ -20,7 +20,7 @@ CONNECTION=\
 
 print(CONNECTION)
 
-myclient = pymongo.MongoClient(CONNECTION)
+myclient = pymongo.MongoClient(CONNECTION, connect=False)
 mydb = myclient["mydatabase"]
 mycol = mydb["customers"]
 
